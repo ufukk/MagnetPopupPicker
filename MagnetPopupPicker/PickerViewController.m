@@ -47,7 +47,8 @@
     self.searchField = [[UITextField alloc] initWithFrame:CGRectMake(48, 10, 175, 30)];
     self.searchField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.searchField.borderStyle = UITextBorderStyleRoundedRect;
-    self.searchField.placeholder = @"...";
+    self.searchField.placeholder = @"Search";
+    self.searchField.autocorrectionType = UITextAutocorrectionTypeNo;
     [self.searchField addTarget:self action:@selector(searchValueChanged) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:self.searchField];
     [self.searchField reloadInputViews];

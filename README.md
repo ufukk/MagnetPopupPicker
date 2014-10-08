@@ -7,6 +7,7 @@ Simple and easy to use drop down substitution for IOS.
 Usage: 
 
 self.button = [[PopupPickerButton alloc] initWithFrame:CGRectMake(11, 50, 150, 30)];
+
 [self.button setTitle:@"Select" forState:UIControlStateNormal];
     
 NSArray *list = [NSArray arrayWithObjects:[KeyValuePair keyValuePairWithKeyAndValue:@"test1" value:@"Test 1"],
