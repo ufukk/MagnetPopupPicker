@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.button = [[PopupPickerButton alloc] initWithFrame:CGRectMake(20, 120, 200, 100)];
+    self.button = [[PopupPickerButton alloc] initWithFrame:CGRectMake(11, 50, 150, 30)];
     self.button.backgroundColor = [UIColor darkGrayColor];
     [self.button setTitle:@"Select" forState:UIControlStateNormal];
     
