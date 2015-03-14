@@ -415,6 +415,7 @@
 				INFOPLIST_FILE = "MagnetPopupPicker/MagnetPopupPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -429,6 +430,7 @@
 				INFOPLIST_FILE = "MagnetPopupPicker/MagnetPopupPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -492,6 +494,7 @@
 				E17E396519E52BE50069EF05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E17E396619E52BE50069EF05 /* Build configuration list for PBXNativeTarget "MagnetPopupPickerTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +503,7 @@
 				E17E396819E52BE50069EF05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
