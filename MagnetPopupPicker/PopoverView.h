@@ -10,6 +10,8 @@
 
 @interface PopoverView : UIView
 
+@property CGFloat verticalPadding;
+
 @property (nonatomic, readonly) UIView *contentView;
 
 - (instancetype)initWithContentView:(UIView *)contentView;
@@ -18,5 +20,6 @@
 
 - (void)dismissPopover;
 
+- (BOOL)isVisible;
 
 @end

@@ -22,8 +22,7 @@
 @implementation PopupPickerButton
 
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -32,8 +31,7 @@
     return self;
 }
 
--(id)initWithCoder:(NSCoder *)coder
-{
+-(id)initWithCoder:(NSCoder *)coder {
     if(self = [super initWithCoder:coder])
     {
         [self initButton];
@@ -41,40 +39,34 @@
     return self;
 }
 
--(void)initButton
-{
+-(void)initButton {
     [self setDefaults];
     [self loadController];
     [self addTarget:self action:@selector(openPopover:) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)setDefaults
-{
+- (void)setDefaults {
     self.pickerSize = CGSizeMake(300, 200);
 }
 
--(void)loadController
-{
+- (void)loadController {
     self.pickerController = [[PickerViewController alloc] initWithNibName:nil bundle:nil];
     self.pickerController.delegate = self;
 }
 
--(void)setTitle:(NSString *)title forState:(UIControlState)state
-{
+- (void)setTitle:(NSString *)title forState:(UIControlState)state {
     if(!self.placeholder)
         self.placeholder = title;
     [super setTitle:title forState:state];
 }
 
--(void)setOptions:(NSArray *)list keyNames:(KeyValuePair *)names
-{
+- (void)setOptions:(NSArray *)list keyNames:(KeyValuePair *)names {
     self.selectedPair = nil;
     [self.pickerController setOptionList:list keyNames:names];
     [self setTitle:self.placeholder forState:UIControlStateNormal];
 }
 
--(void)setSelectedValue:(NSString *)value
-{
+- (void)setSelectedValue:(NSString *)value {
     NSArray *filtered = [self.pickerController.optionList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.%@ = %@", self.pickerController.keyNames.key, value]];
     if(filtered.count > 0)
     {
@@ -83,15 +75,13 @@
     }
 }
 
--(void)clearValue
-{
+- (void)clearValue {
     self.selectedPair = nil;
     [self.pickerController clearValue];
     [self setTitle:self.placeholder forState:UIControlStateNormal];
 }
 
--(void)pickerViewController:(id)sender submitClicked:(KeyValuePair *)selected
-{
+- (void)pickerViewController:(id)sender submitClicked:(KeyValuePair *)selected {
     self.selectedPair = selected;
     [self.pickerController resetSearch];
     [self setTitle:self.selectedPair.value forState:UIControlStateNormal];
@@ -99,36 +89,31 @@
     [self.popover dismissPopover];
 }
 
--(void)pickerViewControllerCancelClicked:(id)sender
-{
+- (void)pickerViewControllerCancelClicked:(id)sender {
     [self clearValue];
     [self.stateDelegate popupPickerButtonValueChanged:self];
     [self.popover dismissPopover];
 }
 
--(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
     
 }
 
--(NSObject *)fieldText
-{
+- (NSObject *)fieldText {
     return self.selectedPair.value;
 }
 
--(NSObject *)fieldValue
-{
+- (NSObject *)fieldValue {
     return self.selectedPair.key;
 }
 
--(void)openPopover:(UIButton *)button
-{
-    //[self.pickerController setOptionList:self.optionList keyNames:keyNames];
+- (void)openPopover:(UIButton *)button {
+    if([self.popover isVisible])
+        return;
     self.pickerController.view.frame = CGRectMake(0, 0, self.pickerSize.width, self.pickerSize.height);
     self.popover = [[PopoverView alloc] initWithContentView:self.pickerController.view];
     [self.pickerController selectFirstElement];
     self.popover.backgroundColor = [UIColor whiteColor];
-    //self.popover.delegate = self;
     [self.popover showPopover:self];
 }
 
