@@ -28,6 +28,7 @@
     if(self = [super initWithFrame:CGRectNull]) {
         self->_contentView = contentView;
         self.verticalPadding = 5.0;
+        self.horizontalPadding = 5.0;
         [self resetSize];
     }
     return self;
@@ -48,11 +49,11 @@
     CGSize windowSize = [self windowSize];
     CGPoint point = CGPointMake(targetView.frame.origin.x, targetView.frame.origin.y + targetView.frame.size.height + self.verticalPadding);
     if(point.x + self.frame.size.width > windowSize.width) {
-        point.x -= (point.x + self.frame.size.width) - windowSize.width;
+        point.x -= (point.x + self.frame.size.width) - windowSize.width + self.horizontalPadding;
     }
     
     if(point.y + self.frame.size.height > windowSize.height) {
-        point.y -= (point.y + self.frame.size.height) - windowSize.height;
+        point.y -= (point.y + self.frame.size.height) - windowSize.height + self.verticalPadding;
     }
     
     return point;

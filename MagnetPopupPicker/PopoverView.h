@@ -10,6 +10,8 @@
 
 @interface PopoverView : UIView
 
+@property CGFloat horizontalPadding;
+
 @property CGFloat verticalPadding;
 
 @property (nonatomic, readonly) UIView *contentView;
