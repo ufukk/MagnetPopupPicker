@@ -28,7 +28,6 @@
 		E17E397219E52C530069EF05 /* KeyValuePair.m in Sources */ = {isa = PBXBuildFile; fileRef = E17E397119E52C530069EF05 /* KeyValuePair.m */; };
 		E17E397419E52C930069EF05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17E397319E52C930069EF05 /* Main.storyboard */; };
 		E17E397719E52CA90069EF05 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17E397619E52CA90069EF05 /* DemoViewController.m */; };
-		E17E397A19E530930069EF05 /* UIPopoverController+IPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = E17E397919E530930069EF05 /* UIPopoverController+IPhone.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +70,6 @@
 		E17E397319E52C930069EF05 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E17E397519E52CA90069EF05 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		E17E397619E52CA90069EF05 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		E17E397819E530930069EF05 /* UIPopoverController+IPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+IPhone.h"; sourceTree = "<group>"; };
-		E17E397919E530930069EF05 /* UIPopoverController+IPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+IPhone.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +193,6 @@
 				E17E396B19E52C1E0069EF05 /* PickerViewController.m */,
 				E17E396C19E52C1E0069EF05 /* PopupPickerButton.h */,
 				E17E396D19E52C1E0069EF05 /* PopupPickerButton.m */,
-				E17E397819E530930069EF05 /* UIPopoverController+IPhone.h */,
-				E17E397919E530930069EF05 /* UIPopoverController+IPhone.m */,
 			);
 			name = PopupPicker;
 			sourceTree = "<group>";
@@ -299,7 +294,6 @@
 			files = (
 				E17E394719E52BE50069EF05 /* AppDelegate.m in Sources */,
 				E17E396F19E52C1E0069EF05 /* PopupPickerButton.m in Sources */,
-				E17E397A19E530930069EF05 /* UIPopoverController+IPhone.m in Sources */,
 				E17E394A19E52BE50069EF05 /* MagnetPopupPicker.xcdatamodeld in Sources */,
 				E17E396E19E52C1E0069EF05 /* PickerViewController.m in Sources */,
 				E17E394319E52BE50069EF05 /* main.m in Sources */,
