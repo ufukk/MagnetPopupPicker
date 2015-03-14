@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E13E55C91AB446D6006999A4 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = E13E55C81AB446D6006999A4 /* PopoverView.m */; };
 		E17E393519E52BE50069EF05 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17E393419E52BE50069EF05 /* Foundation.framework */; };
 		E17E393719E52BE50069EF05 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17E393619E52BE50069EF05 /* CoreGraphics.framework */; };
 		E17E393919E52BE50069EF05 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17E393819E52BE50069EF05 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E13E55C71AB446D6006999A4 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		E13E55C81AB446D6006999A4 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		E17E393119E52BE50069EF05 /* MagnetPopupPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnetPopupPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17E393419E52BE50069EF05 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E17E393619E52BE50069EF05 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E13E55C61AB446B2006999A4 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				E13E55C71AB446D6006999A4 /* PopoverView.h */,
+				E13E55C81AB446D6006999A4 /* PopoverView.m */,
+			);
+			name = Popover;
+			sourceTree = "<group>";
+		};
 		E17E392819E52BE50069EF05 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +144,7 @@
 		E17E393C19E52BE50069EF05 /* MagnetPopupPicker */ = {
 			isa = PBXGroup;
 			children = (
+				E13E55C61AB446B2006999A4 /* Popover */,
 				E17E396919E52BF40069EF05 /* PopupPicker */,
 				E17E394519E52BE50069EF05 /* AppDelegate.h */,
 				E17E394619E52BE50069EF05 /* AppDelegate.m */,
@@ -291,6 +304,7 @@
 				E17E396E19E52C1E0069EF05 /* PickerViewController.m in Sources */,
 				E17E394319E52BE50069EF05 /* main.m in Sources */,
 				E17E397719E52CA90069EF05 /* DemoViewController.m in Sources */,
+				E13E55C91AB446D6006999A4 /* PopoverView.m in Sources */,
 				E17E397219E52C530069EF05 /* KeyValuePair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +429,7 @@
 				INFOPLIST_FILE = "MagnetPopupPicker/MagnetPopupPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -430,7 +444,7 @@
 				INFOPLIST_FILE = "MagnetPopupPicker/MagnetPopupPicker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

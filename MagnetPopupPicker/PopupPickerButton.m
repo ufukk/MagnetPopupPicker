@@ -8,12 +8,12 @@
 
 #import "PopupPickerButton.h"
 #import "PickerViewController.h"
-#import "UIPopoverController+IPhone.h"
+#import "PopoverView.h"
 
 @interface PopupPickerButton()
 
 @property NSArray *options;
-@property UIPopoverController *popover;
+@property PopoverView *popover;
 @property NSString *placeholder;
 
 @end
@@ -96,14 +96,14 @@
     [self.pickerController resetSearch];
     [self setTitle:self.selectedPair.value forState:UIControlStateNormal];
     [self.stateDelegate popupPickerButtonValueChanged:self];
-    [self.popover dismissPopoverAnimated:YES];
+    [self.popover dismissPopover];
 }
 
 -(void)pickerViewControllerCancelClicked:(id)sender
 {
     [self clearValue];
     [self.stateDelegate popupPickerButtonValueChanged:self];
-    [self.popover dismissPopoverAnimated:YES];
+    [self.popover dismissPopover];
 }
 
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
@@ -124,12 +124,12 @@
 -(void)openPopover:(UIButton *)button
 {
     //[self.pickerController setOptionList:self.optionList keyNames:keyNames];
-    self.popover = [[UIPopoverController alloc] initWithContentViewController:self.pickerController];
+    self.pickerController.view.frame = CGRectMake(0, 0, self.pickerSize.width, self.pickerSize.height);
+    self.popover = [[PopoverView alloc] initWithContentView:self.pickerController.view];
     [self.pickerController selectFirstElement];
-    self.popover.popoverContentSize = self.pickerSize;
     self.popover.backgroundColor = [UIColor whiteColor];
-    self.popover.delegate = self;
-    [self.popover presentPopoverFromRect:self.frame inView:self.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    //self.popover.delegate = self;
+    [self.popover showPopover:self];
 }
 
 /*
