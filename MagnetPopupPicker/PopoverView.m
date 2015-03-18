@@ -52,15 +52,11 @@
         point.x -= (point.x + self.frame.size.width) - windowSize.width + self.horizontalPadding;
     }
     
-    if(point.y + self.frame.size.height > windowSize.height) {
-        point.y -= (point.y + self.frame.size.height) - windowSize.height + self.verticalPadding;
-    }
-    
     return point;
 }
 
 - (void)layoutSubviews {
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.contentView];
 }
 
