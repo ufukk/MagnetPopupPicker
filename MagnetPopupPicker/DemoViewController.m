@@ -20,6 +20,11 @@
 
 @property PopupPickerButton *button3;
 
+@property PopupPickerButton *button4;
+
+@property PopupPickerButton *button5;
+
+
 @end
 
 @implementation DemoViewController
@@ -50,6 +55,14 @@
     [self.button setOptions:list keyNames:[KeyValuePair keyValuePairWithKeyAndValue:@"key" value:@"value"]];
     [self.view addSubview:self.button];
     
+    self.button4 = [[PopupPickerButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 170, 50, 150, 30)];
+    self.button4.backgroundColor = [UIColor darkGrayColor];
+    [self.button4 setTitle:@"Select" forState:UIControlStateNormal];
+    [self.button4 setOptions:list keyNames:[KeyValuePair keyValuePairWithKeyAndValue:@"key" value:@"value"]];
+    [self.view addSubview:self.button4];
+    
+    
+    
     self.button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.button1.frame = CGRectMake(20, 90, 100, 30);
     [self.button1 setTitle:@"BUTTON 1" forState:UIControlStateNormal];
@@ -67,6 +80,13 @@
     [self.button3 setTitle:@"Select" forState:UIControlStateNormal];
     [self.button3 setOptions:list keyNames:[KeyValuePair keyValuePairWithKeyAndValue:@"key" value:@"value"]];
     [self.view addSubview:self.button3];
+    
+    self.button5 = [[PopupPickerButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 170, self.view.bounds.size.height - 50, 150, 30)];
+    self.button5.backgroundColor = [UIColor darkGrayColor];
+    [self.button5 setTitle:@"Select" forState:UIControlStateNormal];
+    [self.button5 setOptions:list keyNames:[KeyValuePair keyValuePairWithKeyAndValue:@"key" value:@"value"]];
+    [self.view addSubview:self.button5];
+
     
 }
 
