@@ -18,6 +18,8 @@
 
 @property UIButton *button2;
 
+@property PopupPickerButton *button3;
+
 @end
 
 @implementation DemoViewController
@@ -59,6 +61,12 @@
     [self.button2 setTitle:@"BUTTON 2" forState:UIControlStateNormal];
     [self.button2 addTarget:nil action:@selector(button2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.button2];
+    
+    self.button3 = [[PopupPickerButton alloc] initWithFrame:CGRectMake(170, self.view.bounds.size.height - 50, 150, 30)];
+    self.button3.backgroundColor = [UIColor darkGrayColor];
+    [self.button3 setTitle:@"Select" forState:UIControlStateNormal];
+    [self.button3 setOptions:list keyNames:[KeyValuePair keyValuePairWithKeyAndValue:@"key" value:@"value"]];
+    [self.view addSubview:self.button3];
     
 }
 

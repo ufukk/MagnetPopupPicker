@@ -52,6 +52,10 @@
         point.x -= (point.x + self.frame.size.width) - windowSize.width + self.horizontalPadding;
     }
     
+    if(point.y + self.frame.size.height > windowSize.height) {
+        point.y = targetView.frame.origin.y - self.frame.size.height - self.verticalPadding;
+    }
+    
     return point;
 }
 

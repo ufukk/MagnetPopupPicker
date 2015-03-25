@@ -108,8 +108,10 @@
 }
 
 - (void)openPopover:(UIButton *)button {
-    if([self.popover isVisible])
+    if([self.popover isVisible]) {
+        [self.popover dismissPopover];
         return;
+    }
     self.pickerController.view.frame = CGRectMake(0, 0, self.pickerSize.width, self.pickerSize.height);
     self.popover = [[PopoverView alloc] initWithContentView:self.pickerController.view];
     [self.pickerController selectFirstElement];
