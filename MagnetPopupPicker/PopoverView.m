@@ -96,7 +96,7 @@
     [[[[UIApplication sharedApplication] delegate] window] addSubview:self];
     [self setEvents];
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationDuration:0.2];
     [UIView setAnimationDelay:0.0];
     self.alpha = 1;
     [UIView commitAnimations];
