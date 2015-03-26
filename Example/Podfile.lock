@@ -1,0 +1,20 @@
+PODS:
+  - FBSnapshotTestCase (1.6)
+  - Kiwi (2.3.1)
+  - MagnetPopupPicker (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - Kiwi
+  - MagnetPopupPicker (from `../`)
+
+EXTERNAL SOURCES:
+  MagnetPopupPicker:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 9d5fe43b29ae3a0ed8fc829477971b281038f748
+  Kiwi: 73e1400209055ee9c8ba78c6012b6b642d0fb9f7
+  MagnetPopupPicker: 039a4b0ded9a0215115f67257a20e731b491a157
+
+COCOAPODS: 0.35.0

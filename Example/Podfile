@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'MagnetPopupPicker', :exclusive => true do
+  pod "MagnetPopupPicker", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "MagnetPopupPicker", :path => "../"
+
+  pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+end
