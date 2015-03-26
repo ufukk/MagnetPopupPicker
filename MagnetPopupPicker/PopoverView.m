@@ -7,10 +7,15 @@
 //
 
 #import "PopoverView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PopoverView()
 
 @property UIGestureRecognizer *tapRecognizer;
+
+@property UIView *containerView;
+
+@property CGRect targetRect;
 
 @end
 
@@ -24,18 +29,20 @@
 }
 */
 
+
 - (instancetype)initWithContentView:(UIView *)contentView {
     if(self = [super initWithFrame:CGRectNull]) {
         self->_contentView = contentView;
         self.verticalPadding = 5.0;
         self.horizontalPadding = 5.0;
-        [self resetSize];
+        self.arrowWidth = 20;
+        self.arrowHeight = 20;
     }
     return self;
 }
 
 - (void)resetSize {
-    self.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    self.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height + self.arrowHeight);
 }
 
 - (CGSize)windowSize {
@@ -45,23 +52,50 @@
 }
 
 
-- (CGPoint)findPositionWithTarget:(UIView *)targetView {
+- (CGPoint)findPositionWithTarget {
     CGSize windowSize = [self windowSize];
-    CGPoint point = CGPointMake(targetView.frame.origin.x, targetView.frame.origin.y + targetView.frame.size.height + self.verticalPadding);
+    CGPoint point = CGPointMake(self.targetRect.origin.x, self.targetRect.origin.y - self.frame.size.height - self.verticalPadding);
     if(point.x + self.frame.size.width > windowSize.width) {
         point.x -= (point.x + self.frame.size.width) - windowSize.width + self.horizontalPadding;
     }
     
-    if(point.y + self.frame.size.height > windowSize.height) {
-        point.y = targetView.frame.origin.y - self.frame.size.height - self.verticalPadding;
+    if(point.y < 0) {
+        point.y = self.targetRect.origin.y + self.targetRect.size.height + self.verticalPadding;
     }
     
     return point;
 }
 
 - (void)layoutSubviews {
-    self.backgroundColor = [UIColor whiteColor];
-    [self addSubview:self.contentView];
+    self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.origin.y > self.targetRect.origin.y ? self.arrowHeight : 0, self.contentView.frame.size.width, self.contentView.frame.size.height)];
+    self.containerView.backgroundColor = self.backgroundColor;
+    [self.containerView addSubview:self.contentView];
+    self.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
+    self.containerView.layer.cornerRadius = 15.0;
+    self.containerView.layer.masksToBounds = YES;
+    [self addSubview:self.containerView];
+}
+
+- (void)drawArrow {
+    CGRect rect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    CGFloat x = self.frame.origin.x > self.targetRect.size.width + self.targetRect.origin.x ? 0 : self.frame.origin.x + self.frame.size.width < self.targetRect.origin.x ? self.frame.size.width - self.arrowWidth : (self.targetRect.origin.x - self.frame.origin.x);
+    x = x < self.containerView.layer.cornerRadius ? self.containerView.layer.cornerRadius : x > self.frame.size.width - self.arrowWidth - self.containerView.layer.cornerRadius ? self.frame.size.width - self.arrowWidth - self.containerView.layer.cornerRadius : x;
+    CGFloat y = self.frame.origin.y > self.targetRect.origin.y ? CGRectGetMinY(rect) : CGRectGetMaxY(rect);
+    CGFloat yEdge = self.frame.origin.y > self.targetRect.origin.y ? CGRectGetMinY(rect) + self.arrowHeight : CGRectGetMaxY(rect) - self.arrowHeight;
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextBeginPath(ctx);
+    CGContextMoveToPoint(ctx, x, yEdge);
+    CGContextAddLineToPoint(ctx, x + self.arrowWidth * 2, yEdge);
+    CGContextAddLineToPoint(ctx, x + self.arrowWidth, y);
+    CGContextClosePath(ctx);
+    
+    //const CGFloat *components = CGColorGetComponents([UIColor blackColor].CGColor);
+    CGContextSetFillColorWithColor(ctx, self.containerView.backgroundColor.CGColor);
+    CGContextFillPath(ctx);
+}
+
+- (void)drawRect:(CGRect)rect {
+    [self drawArrow];
 }
 
 - (UIView *)rootView {
@@ -74,7 +108,7 @@
 }
 
 - (void)dismissPopover {
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
         self.alpha = 0;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
@@ -87,9 +121,10 @@
     return self.superview != nil;
 }
 
-- (void)showPopover:(UIView *)targetView {
+- (void)showPopover:(CGRect)targetRect {
     [self resetSize];
-    CGPoint position = [self findPositionWithTarget:targetView];
+    self.targetRect = targetRect;
+    CGPoint position = [self findPositionWithTarget];
     CGRect frame = CGRectMake(position.x, position.y, self.frame.size.width, self.frame.size.height);
     self.frame = frame;
     self.alpha = 0;

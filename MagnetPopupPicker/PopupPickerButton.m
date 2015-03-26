@@ -115,8 +115,8 @@
     self.pickerController.view.frame = CGRectMake(0, 0, self.pickerSize.width, self.pickerSize.height);
     self.popover = [[PopoverView alloc] initWithContentView:self.pickerController.view];
     [self.pickerController selectFirstElement];
-    self.popover.backgroundColor = [UIColor whiteColor];
-    [self.popover showPopover:self];
+    self.popover.backgroundColor = [UIColor lightGrayColor];
+    [self.popover showPopover:self.frame];
 }
 
 /*

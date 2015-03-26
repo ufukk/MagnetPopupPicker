@@ -14,11 +14,15 @@
 
 @property CGFloat verticalPadding;
 
+@property CGFloat arrowHeight;
+
+@property CGFloat arrowWidth;
+
 @property (nonatomic, readonly) UIView *contentView;
 
 - (instancetype)initWithContentView:(UIView *)contentView;
 
-- (void)showPopover:(UIView *)targetView;
+- (void)showPopover:(CGRect)targetRect;
 
 - (void)dismissPopover;
 
