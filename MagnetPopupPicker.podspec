@@ -10,18 +10,15 @@
 Pod::Spec.new do |s|
   s.name             = "MagnetPopupPicker"
   s.version          = "0.1.0"
-  s.summary          = "A short description of MagnetPopupPicker."
+  s.summary          = "Simple and easy to use drop down component for IOS"
   s.description      = <<-DESC
-                       An optional longer description of MagnetPopupPicker
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       Combo-box like UI component with search function and flexible data interface.
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/MagnetPopupPicker"
+  s.homepage         = "https://github.com/ufukk/MagnetPopupPicker"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "ufuk" => "ufukkocolu@conceptimago.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MagnetPopupPicker.git", :tag => s.version.to_s }
+  s.author           = { "ufuk" => "ufuk.kocolu@gmail.com" }
+  s.source           = { :git => "https://github.com/ufukk/MagnetPopupPicker.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
