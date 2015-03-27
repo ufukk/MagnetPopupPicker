@@ -3,6 +3,16 @@ MagnetPopupPicker <img src="https://travis-ci.org/ufukk/MagnetPopupPicker.svg?br
 
 Simple and easy to use drop down substitution for IOS.
 
+Installation:
+
+	CocoaPods:
+
+	Sample Podfile:
+
+		platform :ios, '7.0'
+		pod 'MagnetPopupPicker'
+
+
 
 Usage: 
 

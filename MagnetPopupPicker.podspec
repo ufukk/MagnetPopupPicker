@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
                        Combo-box like UI component with search function and flexible data interface.
                        DESC
   s.homepage         = "https://github.com/ufukk/MagnetPopupPicker"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.screenshots     = "https://s3.amazonaws.com/cocoacontrols_production/uploads/control_image/image/4820/popuppicker.png"
   s.license          = 'MIT'
   s.author           = { "ufuk" => "ufuk.kocolu@gmail.com" }
   s.source           = { :git => "https://github.com/ufukk/MagnetPopupPicker.git", :tag => s.version.to_s }
@@ -29,7 +29,4 @@ Pod::Spec.new do |s|
     'MagnetPopupPicker' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
