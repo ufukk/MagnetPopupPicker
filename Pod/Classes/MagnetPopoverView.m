@@ -89,7 +89,6 @@
     CGContextAddLineToPoint(ctx, x + self.arrowWidth, y);
     CGContextClosePath(ctx);
     
-    //const CGFloat *components = CGColorGetComponents([UIColor blackColor].CGColor);
     CGContextSetFillColorWithColor(ctx, self.containerView.backgroundColor.CGColor);
     CGContextFillPath(ctx);
 }
@@ -120,6 +119,8 @@
 - (BOOL)isVisible {
     return self.superview != nil;
 }
+
+
 
 - (void)showPopover:(CGRect)targetRect {
     [self resetSize];
