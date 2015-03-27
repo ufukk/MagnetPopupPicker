@@ -1,5 +1,4 @@
-MagnetPopupPicker <img src="https://travis-ci.org/ufukk/MagnetPopupPicker.svg?branch=master"
- />
+MagnetPopupPicker <img src="https://travis-ci.org/ufukk/MagnetPopupPicker.svg?branch=master" />
 =================
 
 Simple and easy to use drop down substitution for IOS.
