@@ -3,12 +3,12 @@ MagnetPopupPicker <img src="https://travis-ci.org/ufukk/MagnetPopupPicker.svg?br
 
 Simple and easy to use drop down substitution for IOS.
 
-Installation via CocoaPods:
+#Installation via CocoaPods:
 
 		platform :ios, '7.0'
 		pod 'MagnetPopupPicker'
 
-Usage: 
+#Usage: 
 
         self.button = [[PopupPickerButton alloc] initWithFrame:CGRectMake(11, 50, 150, 30)];
 
