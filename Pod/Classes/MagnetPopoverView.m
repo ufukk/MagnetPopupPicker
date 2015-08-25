@@ -12,26 +12,17 @@
 @interface MagnetPopoverView()
 
 @property UIGestureRecognizer *tapRecognizer;
-
 @property UIView *containerView;
-
 @property CGRect targetRect;
 
 @end
 
 @implementation MagnetPopoverView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
-
-- (instancetype)initWithContentView:(UIView *)contentView {
-    if(self = [super initWithFrame:CGRectNull]) {
+- (instancetype)initWithContentView:(UIView *)contentView
+{
+    if (self = [super initWithFrame:CGRectNull])
+    {
         self->_contentView = contentView;
         self.verticalPadding = 5.0;
         self.horizontalPadding = 5.0;
@@ -116,20 +107,20 @@
     }];
 }
 
-- (BOOL)isVisible {
+- (BOOL)isVisible
+{
     return self.superview != nil;
 }
 
-
-
-- (void)showPopover:(CGRect)targetRect {
+- (void)showPopoverFromButton:(UIButton *)button
+{
     [self resetSize];
-    self.targetRect = targetRect;
+    self.targetRect = button.frame;
     CGPoint position = [self findPositionWithTarget];
     CGRect frame = CGRectMake(position.x, position.y, self.frame.size.width, self.frame.size.height);
     self.frame = frame;
     self.alpha = 0;
-    [[[[UIApplication sharedApplication] delegate] window] addSubview:self];
+    [button.superview addSubview:self];
     [self setEvents];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2];

@@ -117,16 +117,7 @@
     self.popover = [[MagnetPopoverView alloc] initWithContentView:self.pickerController.view];
     [self.pickerController selectFirstElement];
     self.popover.backgroundColor = self.popoverColor;
-    [self.popover showPopover:self.frame];
+    [self.popover showPopoverFromButton:self];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
