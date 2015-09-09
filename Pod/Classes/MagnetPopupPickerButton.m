@@ -100,15 +100,22 @@
     
 }
 
-- (NSObject *)fieldText {
-    return self.selectedPair.value;
-}
-
-- (NSObject *)fieldValue {
+- (NSString *)selectedKey
+{
     return self.selectedPair.key;
 }
 
-- (void)openPopover:(UIButton *)button {
+- (id)selectedValue
+{
+    id fieldText = self.selectedPair.value;
+    if (!fieldText)
+        fieldText = self.titleLabel.text;
+    
+    return fieldText;
+}
+
+- (void)openPopover:(UIButton *)button
+{
     if([self.popover isVisible]) {
         [self.popover dismissPopover];
         return;
