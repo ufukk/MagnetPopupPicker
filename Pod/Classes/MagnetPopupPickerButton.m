@@ -82,6 +82,12 @@
     [self setTitle:self.placeholder forState:UIControlStateNormal];
 }
 
+- (void)dismissPopover
+{
+    if (self.popover.isVisible)
+        [self.popover dismissPopover];
+}
+
 - (void)pickerViewController:(id)sender submitClicked:(MagnetKeyValuePair *)selected {
     self.selectedPair = selected;
     [self.pickerController resetSearch];

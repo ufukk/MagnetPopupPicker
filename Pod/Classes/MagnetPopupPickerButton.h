@@ -25,9 +25,14 @@
 
 @property (nonatomic, weak) id<PopupPickerButtonStateDelegate> stateDelegate;
 
--(void)setOptions:(NSArray *)list keyNames:(MagnetKeyValuePair *)names;
--(void)setSelectedValue:(NSString *)value;
--(void)clearValue;
+- (void)setOptions:(NSArray *)list keyNames:(MagnetKeyValuePair *)names;
+- (void)setSelectedValue:(NSString *)value;
+- (void)clearValue;
+
+/**
+ Dismisses the popover if it's open.
+ */
+- (void)dismissPopover;
 
 - (NSString *)selectedKey;
 - (id)selectedValue;
