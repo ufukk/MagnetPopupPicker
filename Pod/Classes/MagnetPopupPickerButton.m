@@ -82,6 +82,12 @@
     [self setTitle:self.placeholder forState:UIControlStateNormal];
 }
 
+- (void)dismissPopover
+{
+    if (self.popover.isVisible)
+        [self.popover dismissPopover];
+}
+
 - (void)pickerViewController:(id)sender submitClicked:(MagnetKeyValuePair *)selected {
     self.selectedPair = selected;
     [self.pickerController resetSearch];
@@ -100,15 +106,22 @@
     
 }
 
-- (NSObject *)fieldText {
-    return self.selectedPair.value;
-}
-
-- (NSObject *)fieldValue {
+- (NSString *)selectedKey
+{
     return self.selectedPair.key;
 }
 
-- (void)openPopover:(UIButton *)button {
+- (id)selectedValue
+{
+    id fieldText = self.selectedPair.value;
+    if (!fieldText)
+        fieldText = self.titleLabel.text;
+    
+    return fieldText;
+}
+
+- (void)openPopover:(UIButton *)button
+{
     if([self.popover isVisible]) {
         [self.popover dismissPopover];
         return;
@@ -117,16 +130,7 @@
     self.popover = [[MagnetPopoverView alloc] initWithContentView:self.pickerController.view];
     [self.pickerController selectFirstElement];
     self.popover.backgroundColor = self.popoverColor;
-    [self.popover showPopover:self.frame];
+    [self.popover showPopoverFromButton:self];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
